@@ -1,0 +1,13 @@
+site_name: r2yara Documentation
+strict: true
+theme: readthedocs
+docs_dir: .
+pages:
+- Home: 
+  - Index: 'index.md'
+  - Installation: installation/installation.md
+  - Tests: installation/tests.md
+
+- r2yara module:
+  - imports: 'r2yara/imports.md'
+  - hashes: 'r2yara/hashes.md'
