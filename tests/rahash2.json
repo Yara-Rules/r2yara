@@ -1,0 +1,53 @@
+[{
+	"name": "md5",
+	"hash": "c4e5f7fcbcef75924b2abde2b2e75f3f"
+}, {
+	"name": "sha1",
+	"hash": "2df1502114171d5213f7e5f699a4a80ac47974e1"
+}, {
+	"name": "sha256",
+	"hash": "a90ba058c747458330ba26b5e2a744f4fc57f92f9d0c9112b1cb2f76c66c4ba0"
+}, {
+	"name": "sha384",
+	"hash": "3f239e271db8015cbcd367d721ef2c21289caad75c08b318ae18b203824023251410d5df80c8f92a1a116f90ac67c0cb"
+}, {
+	"name": "sha512",
+	"hash": "11ad52bdd829a1dfae20f2e90ecc4cfc6e3065ddb23afc02d54aea2a710b3a5da5e4d67a3f346ecd1f962c15797f3cedac7e0d97bb25b1106f92a5327ee9c6d1"
+}, {
+	"name": "crc16",
+	"hash": "0797"
+}, {
+	"name": "crc32",
+	"hash": "77b053d3"
+}, {
+	"name": "md4",
+	"hash": "fe4d52ab4d7555deb04e71c727a53814"
+}, {
+	"name": "xor",
+	"hash": "8d"
+}, {
+	"name": "xorpair",
+	"hash": "971a"
+}, {
+	"name": "parity",
+	"hash": "00"
+}, {
+	"name": "entropy",
+	"hash": "05000000"
+}, {
+	"name": "hamdist",
+	"hash": "00"
+}, {
+	"name": "pcprint",
+	"hash": "24"
+}, {
+	"name": "mod255",
+	"hash": "42"
+}, {
+	"name": "adler32",
+	"hash": "5e759306"
+}, {
+	"name": "luhn",
+	"hash": "02"
+}]
+//rahash2 -a (todas las opciones) -j binario
