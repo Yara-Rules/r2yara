@@ -192,7 +192,8 @@ import "r2"
 rule potential_keylogger {
 meta: 
   description = "Rule to detect a potential keylogger" 
-   author = "@plutec_net, @mmorenog" reference "Practical Malware Analysis (book), page 18) 
+   author = "@plutec_net, @mmorenog" 
+   reference "Practical Malware Analysis (book), page 18) 
 
 strings:
   $autorun = "Software\Microsoft\Windows\CurrentVersion\Run" wide ascii 
@@ -260,5 +261,4 @@ Thanks for all the people that give us feedback during the development, speciall
 
 # Authors
 
-- @plutec_net
-- @mmorenog
+- @plutec_net and @mmorenog
