@@ -95,7 +95,7 @@ r2.import(-1,"","",CreateProcessA)
 ```
 To end this part, remember there're common Windows [functions](http://yararules.com/2017/04/06/yara-rules-strings-statistical-study/) found in malware and you can build Yara signatures to detect them.
 
-> ### Exported Symbols (Exported)
+> ### Exported Symbols (Exports)
 
 In the same way as Imports, also there are exported functions or symbols to interact with other programs. Yara Rule syntax is:
 
