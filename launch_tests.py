@@ -52,6 +52,19 @@ class TestR2Yara(unittest.TestCase):
 
         self.assertTrue(total_rules == 0)
 
+    def test_section_functions(self):
+        rule = "tests/rules/section_functions.yar"
+        rules = ["rule_sections_ss", "rule_sections_sr", "rule_sections_rs", "rule_sections_rr"]
+        matches = command_line(rule, "tests/bins/ls")
+        total_rules = len(rules)
+        for match in matches:
+            if match in rules:
+                total_rules -= 1
+
+
+        self.assertTrue(total_rules == 0)
+
+
     def test_imports(self):
         rule = "tests/rules/imports.yar"        
         rules = ["rule_import_isss_1",
