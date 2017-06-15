@@ -21,7 +21,7 @@ And we hope you find it interesting :)
  
 ## Installation
  
-In the installation [section] (https://github.com/Yara-Rules/r2yara/blob/master/docs/installation/installation.md)  you will found detailed instructions about the r2 installation and Yara configuration + installation.
+In the installation [section](https://github.com/Yara-Rules/r2yara/blob/master/docs/installation/installation.md)  you will found detailed instructions about the r2 installation and Yara configuration + installation.
  
 There’re two ways to use r2.c:
  
