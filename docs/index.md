@@ -261,4 +261,5 @@ Thanks for all the people that give us feedback during the development, speciall
 
 # Authors
 
-- @plutec_net and @mmorenog
+- @plutec_net 
+- @mmorenog
