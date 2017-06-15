@@ -162,7 +162,7 @@ rule protections {
   r2.info.pic == 1 and  
   r2.info.nx == 1 }
 ```
-## More uses Cases
+# More uses Cases
 > ## Side effects of Packing
 
 Packed and obfuscated code will often include at least the functions LoadLibrary and GetProcAddress, which are used to load and gain Access to additional functions. The section sizes can be useful in detecting packed executables. For example, if the Vsize is much larger than the size of raw data, you know that the section takes up more space in memory than it does on disk. This is often indicative of packed code, particularly if the .text section is larger in memory than on disk  and marked as code/executable (reference = "Practical Malware Analysis. BlackHat. Kris Kendall and Chad McMillan. Page 52")
