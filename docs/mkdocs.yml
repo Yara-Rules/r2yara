@@ -10,6 +10,7 @@ pages:
 
 - r2yara module:
   - Imports: 'r2yara/imports.md'
+  - Exports: 'r2yara/exports.md'
   - Hashes: 'r2yara/hashes.md'
   - Sections: 'r2yara/sections.md'
   - Libraries: 'r2yara/lib.md'

@@ -26,8 +26,32 @@ def command_line(yararule, binary):
 """
 Test r2yara
 """
-class TestR2Yara(unittest.TestCase):
+class TestR2YaraAutoInvoke(unittest.TestCase):
+
+    def test_export_array(self):
+        rule = "tests/rules/exports_array.yar"
+        rules = ["rule_exports_array"]
+        matches = command_line(rule, "tests/bins/dll.dll_")
+        total_rules = len(rules)
+        for match in matches:
+            if match in rules:
+                total_rules -= 1
+
+
+        self.assertTrue(total_rules == 0)
     
+    def test_export(self):
+        rule = "tests/rules/export.yar"
+        rules = ["rule_export_ss", "rule_export_sr", "rule_export_rs", "rule_export_rr"]
+        matches = command_line(rule, "tests/bins/dll.dll_")
+        total_rules = len(rules)
+        for match in matches:
+            if match in rules:
+                total_rules -= 1
+
+
+        self.assertTrue(total_rules == 0)
+
     def test_lib(self):
         rule = "tests/rules/lib.yar"
         rules = ["rule_lib_s", "rule_lib_r"]
