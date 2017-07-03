@@ -28,6 +28,30 @@ Test r2yara
 """
 class TestR2YaraAutoInvoke(unittest.TestCase):
 
+    def test_resource_function(self):
+        rule = "tests/rules/resource_func.yar"
+        rules = ["resource_ss", "resource_rs", "resource_sr", "resource_rr"]
+        matches = command_line(rule, "tests/bins/f61dc6f07401b8bc383d4bb69c001a6bf38f6557eeec7a9c261b581a4effdc1a")
+        total_rules = len(rules)
+        for match in matches:
+            if match in rules:
+                total_rules -= 1
+
+
+        self.assertTrue(total_rules == 0)
+
+    def test_resource_array(self):
+        rule = "tests/rules/resources_array.yar"
+        rules = ["resources"]
+        matches = command_line(rule, "tests/bins/f61dc6f07401b8bc383d4bb69c001a6bf38f6557eeec7a9c261b581a4effdc1a")
+        total_rules = len(rules)
+        for match in matches:
+            if match in rules:
+                total_rules -= 1
+
+
+        self.assertTrue(total_rules == 0)
+
     def test_export_array(self):
         rule = "tests/rules/exports_array.yar"
         rules = ["rule_exports_array"]
@@ -40,7 +64,7 @@ class TestR2YaraAutoInvoke(unittest.TestCase):
 
         self.assertTrue(total_rules == 0)
     
-    def test_export(self):
+    def test_export_function(self):
         rule = "tests/rules/export.yar"
         rules = ["rule_export_ss", "rule_export_sr", "rule_export_rs", "rule_export_rr"]
         matches = command_line(rule, "tests/bins/dll.dll_")
@@ -76,7 +100,7 @@ class TestR2YaraAutoInvoke(unittest.TestCase):
 
         self.assertTrue(total_rules == 0)
 
-    def test_section_functions(self):
+    def test_section_function(self):
         rule = "tests/rules/section_functions.yar"
         rules = ["rule_sections_ss", "rule_sections_sr", "rule_sections_rs", "rule_sections_rr"]
         matches = command_line(rule, "tests/bins/ls")
@@ -89,7 +113,7 @@ class TestR2YaraAutoInvoke(unittest.TestCase):
         self.assertTrue(total_rules == 0)
 
 
-    def test_imports(self):
+    def test_imports_function(self):
         rule = "tests/rules/imports.yar"        
         rules = ["rule_import_isss_1",
                  "rule_import_isss_2",
