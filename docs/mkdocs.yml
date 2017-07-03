@@ -15,3 +15,4 @@ pages:
   - Sections: 'r2yara/sections.md'
   - Libraries: 'r2yara/lib.md'
   - Resources: 'r2yara/resources.md'
+  - Info: 'r2yara/info.md'
