@@ -28,6 +28,18 @@ Test r2yara
 """
 class TestR2YaraAutoInvoke(unittest.TestCase):
 
+    def test_hashes_array(self):
+        rule = "tests/rules/hash.yar"
+        rules = ["rule_hashes"]
+        matches = command_line(rule, "tests/bins/ls")
+        total_rules = len(rules)
+        for match in matches:
+            if match in rules:
+                total_rules -= 1
+
+
+        self.assertTrue(total_rules == 0)
+    
     def test_resource_function(self):
         rule = "tests/rules/resource_func.yar"
         rules = ["resource_ss", "resource_rs", "resource_sr", "resource_rr"]

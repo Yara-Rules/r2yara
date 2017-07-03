@@ -1,6 +1,6 @@
 import "r2"
 
-rule rule_hash
+rule rule_hashes
 {
 condition:
 	r2.hash.md5 != "945fedb3a3c290d69f075f997e5320fc"  and 
