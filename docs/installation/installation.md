@@ -1,6 +1,6 @@
 These instructions detailed the steps to install al the requirements to use this module.
 
-# Radare2
+# Install radare2
 The first step is download & install radare2:
 
 ```sh
@@ -19,8 +19,8 @@ and uncompress for instance in your home folder (/home/user/yara)
 # Integrate r2yara inside Yara
 This is the "complicated" part of the installation, you need to include the file r2.c inside Yara, modify some files and compile all. But better step by step:
 
-- Download r2.c from our repo [https://github.com/plutec/r2yara/r2.c](https://github.com/plutec/r2yara/r2.c) to libyara/modules/
-- Modify "libyara/modules/module_list" and add r2 module in the Cuckoo block. The file should look similar to:
+1. Download r2.c from our repo [https://github.com/Yara-Rules/r2yara/blob/master/r2.c](https://github.com/Yara-Rules/r2yara/blob/master/r2.c) to libyara/modules/
+2. Modify "libyara/modules/module_list" and add r2 module in the Cuckoo block. The file should look similar to:
 
 ```
 MODULE(pe)
@@ -33,7 +33,7 @@ MODULE(r2)
 #endif
 ```
 
-- Modify "libyara/Makefile.am" to add r2 module in the Cuckoo block:
+3. Modify "libyara/Makefile.am" to add r2 module in the Cuckoo block:
 
 ```
 MODULES =  modules/tests.c
@@ -46,13 +46,39 @@ MODULES += modules/r2.c
 endif
 ```
 
-- TODO More steps
+4. Define the simbol DOLLAR_SIGN in file "configure.ac", at the end of file:
+```
+#Just before AC_OUTPUT
+AC_SUBST([DOLLAR_SIGN],[$])
 
-Recompile Yara, with cuckoo module enabled. The reason to include it is because Cuckoo module uses libjansson like r2 (and other modules like androguard), and this is the easy way to prepare all dependencies. If you don't want to include cuckoo module, you have to browse for all Makefile files and include libjansson without condition (this is the very hard way). 
+AC_OUTPUT
+```
+
+5. Modify "libyara/Makefile.am" to include the flags to compile with r2pipe:
 
 ```
+AM_CFLAGS=-O3 -Wall -Wno-deprecated-declarations -std=gnu99 -I$(srcdir)/include
+#Just after the declaration of AM_CFLAGS include this:
+
+AM_CFLAGS+=@DOLLAR_SIGN@(shell pkg-config --cflags r_socket)
+LIBS += @DOLLAR_SIGN@(shell pkg-config --libs r_socket)
+```
+
+6. Include more flags in "Makefile.am", just in the end of file:
+```
+AM_CFLAGS += @DOLLAR_SIGN@(shell pkg-config --cflags r_socket)
+LIBS += @DOLLAR_SIGN@(shell pkg-config --libs r_socket)
+```
+
+7. Compile Yara...
+```sh
 ./bootstrap.sh
 ./configure --enable-cuckoo
 make
-make install
+sudo make install
+```
+
+8. Enjoy!
+```sh
+cd r2yara_folder && ./launch_tests.py
 ```
