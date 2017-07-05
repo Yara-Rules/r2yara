@@ -1,6 +1,7 @@
 #Info
 
-Radare generates some information about the binary like compiled timestamp, if it has overlay or canary protection, the command used in r2 to extract this information is **iI**. The complete list of values is:
+
+Rabin2 generates some information about the binary like compiled timestamp, if it has overlay or canary protection, the command used in r2 to extract this information is **iI**. The complete list of values is:
 
 - havecode (integer)
 - pic (integer)

@@ -5,9 +5,9 @@ docs_dir: .
 pages:
 - Home: 
   - Index: 'index.md'
-  - Installation: installation/installation.md
-  - Tests: installation/tests.md
-
+  - Installation: 'installation/installation.md'
+  - Tests: 'installation/tests.md'
+  - Use Cases: 'use_cases.md'
 - r2yara module:
   - Imports: 'r2yara/imports.md'
   - Exports: 'r2yara/exports.md'
