@@ -12,7 +12,7 @@
 #define strcasecmp _stricmp
 #endif
 
-#define NUMBER_OF_HASHES 17
+#define NUMBER_OF_HASHES 26
 
 #define MODULE_NAME r2
 
@@ -1086,7 +1086,10 @@ begin_declarations;
     declare_string("sha384");
     declare_string("sha512");
     declare_string("crc16");
+    declare_string("crc24");
     declare_string("crc32");
+    declare_string("crc32c");
+    declare_string("crc32ecma267");
     declare_string("md4");
     declare_string("xor");
     declare_string("xorpair");
@@ -1095,8 +1098,14 @@ begin_declarations;
     declare_string("hamdist");
     declare_string("pcprint");
     declare_string("mod255");
+    declare_string("xxhash");
     declare_string("adler32");
     declare_string("luhn");
+    declare_string("crc8smbus");
+    declare_string("crc15can");
+    declare_string("crc16hdlc");
+    declare_string("crc16usb");
+    declare_string("crc16citt");
   end_struct("hash");
 
   begin_struct("info");
@@ -1221,8 +1230,9 @@ int module_load(
   YR_OBJECT* hash_obj = NULL;
   R2Pipe *r2 = NULL;
   char hash_names[NUMBER_OF_HASHES][16] = {"md5", "sha1", "sha256", "sha384", "sha512",
-        "crc16", "crc32", "md4", "xor", "xorpair", "parity", "entropy",
-        "hamdist", "pcprint", "mod255", "adler32", "luhn"};
+        "crc16", "crc24", "crc32", "crc32c", "crc32ecma267", "md4", "xor", "xorpair", 
+        "parity", "entropy", "hamdist", "pcprint", "mod255", "xxhash", "adler32", 
+        "luhn", "crc8smbus", "crc15can", "crc16hdlc", "crc16usb", "crc16citt"};
 
 /*
     "md5", "sha1", "sha256", "sha384",
@@ -1371,6 +1381,8 @@ int module_load(
         json_object_set_new( this_hash, "hash", json_string(hash_value) );
         json_array_append(hash, this_hash);
       }
+      
+      r2cmd(r2, "q");
       r2p_close(r2);
 
     }
