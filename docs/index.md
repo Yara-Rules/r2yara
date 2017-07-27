@@ -22,22 +22,26 @@ And we hope you find it interesting :)
 ## Installation
  
 In the [installation section](https://github.com/Yara-Rules/r2yara/blob/master/docs/installation/installation.md) you will found detailed instructions about the r2 installation and Yara configuration + installation.
+
+## Use
  
 There’re two ways to use r2.c:
  
-* First way to use r2.c is passing Json report generated with Radare2. This is the quickly way to use with a lot amount samples.
+* First way to use r2.c is passing Json report generated with `generate_report.py` that use radare2. This is the quickly way to use with a lot amount samples, because you can **generate the report one time and use whenever you want**.
+
 ```sh      
-yara -x r2=report.json file.yar binary
+$ ./generate_report.py binary > report.json
+$ yara -x r2=report.json file.yar binary
 ```
 * Second way is invoking automatically Radare2 from Yara. This method is recommendable to use manually. One of the powers of Yara, the speed, is considerably decreased using this method, but is very userful to quick tests.
 ```sh                               
-yara file.yar binary
+$ yara file.yar binary
 ```
 ## What radare2 information can be used with the module?
  
 We can write Yara rules with a lot of information from [rabin2](https://radare.gitbooks.io/radare2book/content/rabin2/intro.html) and [rahash2](https://radare.gitbooks.io/radare2book/content/rahash2/intro.html). 
  
-Rabin2 is a powerful tool from radare2 framework to handle binary files, to get information on “imports”, sections, “symbols” (exported symbols), list archs, headers fields, binary info, libraries, etc. 
+Rabin2 is a powerful tool from radare2 framework to handle binary files, to get information on "imports", "sections", "exports", list archs, headers fields, binary info, libraries, etc. 
  
 With Rahash2 we can calculate a checksum with a lot of different
 Algorithms: md5, sha1, sha256, sha384, sha512, crc16, crc32, md4, xor, xorpair, parity, entropy, hamdist, pcprint, mod255, xxhash...etc.
