@@ -876,6 +876,7 @@ define_function(export_rr) // name,demname,flagname,type
 /*
   Function to detect BINS (with strings)
 */
+  /*
 define_function(bin_si) // arch, bits 
 //{"bins":[{"arch":"x86","bits":64,"offset":0}]}
 //rabin2 -A List archs
@@ -909,10 +910,11 @@ define_function(bin_si) // arch, bits
   
   if (result == 2) { return_integer(1); }
   return_integer(0);
-}
+}*/
 /*
   Function to detect BINS (arch regex)
 */
+/*
 define_function(bin_ri) // arch, bits
 {
   YR_OBJECT* bin_obj = get_object(module(), "bin");
@@ -941,7 +943,7 @@ define_function(bin_ri) // arch, bits
   if (result == 2) { return_integer(1); }
   return_integer(0);
 }
-
+*/
 /*
 ##################### HASH ##################################################  
  [{"name":"md5","hash":"c4e5f7fcbcef75924b2abde2b2e75f3f"},
@@ -1214,7 +1216,7 @@ int module_load(
   YR_OBJECT* resources_obj = NULL;
   YR_OBJECT* lib_obj = NULL;
   YR_OBJECT* export_obj = NULL;
-  YR_OBJECT* bin_obj = NULL;
+  //YR_OBJECT* bin_obj = NULL;
   YR_OBJECT* info_obj = NULL;
   YR_OBJECT* hash_obj = NULL;
   R2Pipe *r2 = NULL;
@@ -1252,7 +1254,7 @@ int module_load(
   sections_obj = get_object(module_object, "sections");
   resources_obj = get_object(module_object, "resources");
   export_obj = get_object(module_object, "exports");
-  bin_obj = get_object(module_object, "bin");
+  //bin_obj = get_object(module_object, "bin");
   lib_obj = get_object(module_object, "lib");
   info_obj = get_object(module_object, "info");
   hash_obj = get_object(module_object,"hash");
@@ -1378,8 +1380,8 @@ int module_load(
     sections_obj->data = json_object_get(json, "sections");
     resources_obj->data = json_object_get(json, "resources");
     lib_obj->data = json_object_get(json, "libs");
-    export_obj->data = json_object_get(json, "symbols"); //TODO to review
-    bin_obj->data = json_object_get(json, "bins");
+    export_obj->data = json_object_get(json, "exports"); //TODO to review
+    //bin_obj->data = json_object_get(json, "bins");
     info = json_object_get(json, "info");
     hash = json_object_get(json, "hash");
 
