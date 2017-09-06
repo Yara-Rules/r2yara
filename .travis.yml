@@ -38,7 +38,6 @@ before_install:
 # Download requirements.txt
 #  - sudo pip install -r requirements.txt
 
-#script:
-#  - python download_androguard_report.py -s d8adb784d08a951ebacf2491442cf90d21c20192085e44d1cd22e2b6bdd4ef5f
-#  - echo "trashtrashtrash" > sample.apk
-#  - yara -x androguard=d8adb784d08a951ebacf2491442cf90d21c20192085e44d1cd22e2b6bdd4ef5f-report.json test/rule.yar sample.apk
+script:
+  - ls
+  - python launch_tests.py
