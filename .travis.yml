@@ -23,7 +23,7 @@ before_install:
 
 # Install radare2
   - git clone https://github.com/radare/radare2.git
-  - ./radare2/sys/install.sh
+  - cd radare2 && ./sys/install.sh
   
 # Compile Yara
   - cd ../yara-3.6.3

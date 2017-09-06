@@ -1,8 +1,9 @@
 [![Build Status](https://travis-ci.org/Yara-Rules/r2yara.svg)](https://travis-ci.org/Yara-Rules/r2yara)
 
+[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
+
 # R2Yara module
 
-[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 
 R2 + Yara...
 
