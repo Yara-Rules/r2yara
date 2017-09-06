@@ -6,7 +6,7 @@ import unittest
 
 __author__ = "Antonio Sanchez <asanchez@plutec.com>"
 
-YARABIN = "../yara/yara"
+YARABIN = "yara"
 
 """
     Aux method to run yara from command line
