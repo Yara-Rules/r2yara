@@ -33,11 +33,11 @@ before_install:
   - make
   - sudo make install
   - sudo ldconfig
-  - cd ../
 
 # Download requirements.txt
 #  - sudo pip install -r requirements.txt
 
 script:
+  - cd ../
   - ls
   - python launch_tests.py
