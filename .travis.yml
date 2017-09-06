@@ -1,0 +1,35 @@
+language: c
+sudo: required
+#dist: trusty
+before_install:
+# Yara
+  - wget https://github.com/VirusTotal/yara/archive/v3.6.3.tar.gz -O yara.tar.gz
+  - tar -xzvf yara.tar.gz
+# Androguard for Yara
+  - cp androguard.c yara-3.6.3/libyara/modules/androguard.c
+  - cp dist/yara-3.6.3/libyara/modules/module_list yara-3.6.3/libyara/modules/module_list
+  - cp dist/yara-3.6.3/libyara/Makefile.am yara-3.6.3/libyara/Makefile.am
+# libjansson
+  - wget http://www.digip.org/jansson/releases/jansson-2.7.tar.gz
+  - tar -xzvf jansson-2.7.tar.gz
+  - cd jansson-2.7
+  - ./configure
+  - make
+  - sudo make install
+  
+# Compile Yara
+  - cd ../yara-3.6.3
+  - ./bootstrap.sh
+  - ./configure --enable-cuckoo
+  - make
+  - sudo make install
+  - sudo ldconfig
+  - cd ../
+
+# Download requirements.txt
+#  - sudo pip install -r requirements.txt
+
+#script:
+#  - python download_androguard_report.py -s d8adb784d08a951ebacf2491442cf90d21c20192085e44d1cd22e2b6bdd4ef5f
+#  - echo "trashtrashtrash" > sample.apk
+#  - yara -x androguard=d8adb784d08a951ebacf2491442cf90d21c20192085e44d1cd22e2b6bdd4ef5f-report.json test/rule.yar sample.apk
