@@ -5,8 +5,8 @@ before_install:
 # Yara
   - wget https://github.com/VirusTotal/yara/archive/v3.6.3.tar.gz -O yara.tar.gz
   - tar -xzvf yara.tar.gz
-# Androguard for Yara
-  - cp androguard.c yara-3.6.3/libyara/modules/androguard.c
+# R2 module for Yara
+  - cp r2.c yara-3.6.3/libyara/modules/androguard.c
   - cp dist/yara-3.6.3/libyara/modules/module_list yara-3.6.3/libyara/modules/module_list
   - cp dist/yara-3.6.3/libyara/Makefile.am yara-3.6.3/libyara/Makefile.am
 # libjansson
