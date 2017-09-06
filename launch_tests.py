@@ -240,6 +240,7 @@ class TestR2YaraAutoInvoke(unittest.TestCase):
         rule = "tests/rules/exports_array.yar"
         rules = ["rule_exports_array"]
         matches = command_line(rule, "tests/bins/dll.dll_")
+        print matches
         total_rules = len(rules)
         for match in matches:
             if match in rules:
