@@ -10,8 +10,8 @@ before_install:
   - cp dist/yara-3.6.3/libyara/modules/module_list yara-3.6.3/libyara/modules/module_list
   - cp dist/yara-3.6.3/libyara/Makefile.am yara-3.6.3/libyara/Makefile.am
   - cp dist/yara-3.6.3/configure.ac yara-3.6.3/configure.ac
-  - echo "AM_CFLAGS += @DOLLAR_SIGN@(shell pkg-config --cflags r_socket)
-  LIBS += @DOLLAR_SIGN@(shell pkg-config --libs r_socket)" >> yara-3.6.3/Makefile.am
+  - echo "AM_CFLAGS += @DOLLAR_SIGN@(shell pkg-config --cflags r_socket)" >> yara-3.6.3/Makefile.am
+  - echo "LIBS += @DOLLAR_SIGN@(shell pkg-config --libs r_socket)" >> yara-3.6.3/Makefile.am
 
 # libjansson
   - wget http://www.digip.org/jansson/releases/jansson-2.7.tar.gz
