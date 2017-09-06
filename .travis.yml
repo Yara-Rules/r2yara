@@ -6,7 +6,7 @@ before_install:
   - wget https://github.com/VirusTotal/yara/archive/v3.6.3.tar.gz -O yara.tar.gz
   - tar -xzvf yara.tar.gz
 # R2 module for Yara
-  - cp r2.c yara-3.6.3/libyara/modules/androguard.c
+  - cp r2.c yara-3.6.3/libyara/modules/r2.c
   - cp dist/yara-3.6.3/libyara/modules/module_list yara-3.6.3/libyara/modules/module_list
   - cp dist/yara-3.6.3/libyara/Makefile.am yara-3.6.3/libyara/Makefile.am
   - cp dist/yara-3.6.3/configure.ac yara-3.6.3/configure.ac
