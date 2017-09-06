@@ -20,6 +20,10 @@ before_install:
   - ./configure
   - make
   - sudo make install
+
+# Install radare2
+  - git clone https://github.com/radare/radare2.git
+  - ./radare2/sys/install.sh
   
 # Compile Yara
   - cd ../yara-3.6.3
